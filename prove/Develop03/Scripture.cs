@@ -4,7 +4,7 @@ public class Scripture()
     private string _text;
     private List<string> _words;
 
-    public Scripture(Reference reference, string text)
+    public Scripture(Reference reference, string text) : this()
     {
         _reference = reference;
         _text = text;
@@ -14,6 +14,7 @@ public class Scripture()
     public void SetText(string text)
     {
         _text = text;
+        _words = CreateWordsList();
     }
     private List<string> CreateWordsList()
     {
@@ -22,6 +23,6 @@ public class Scripture()
     }
     public string GetDisplayText()
     {
-        return $"{_reference} {string.Join(" ", _words)}";
+        return $"{_reference.GetDisplayText()} {string.Join(" ", _words)}";
     }
 }

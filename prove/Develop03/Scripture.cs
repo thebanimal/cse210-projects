@@ -16,16 +16,16 @@ public class Scripture()
         _text = text;
         _words = CreateWordsList();
     }
-    private List<string> CreateWordsList()
+    private List<Word> CreateWordsList()
     {
         string[] words = _text.Split(' ');
         List<Word> wordList = new List<Word>();
         foreach (string w in words)
         {
-            Word word = new Word {_word = w};
+            Word word = new Word(w);
             wordList.Add(word);
         }
-        return List<Word>(wordList);
+        return wordList;
     }
     public string GetDisplayText()
     {

@@ -2,7 +2,7 @@ public class Scripture()
 {
     private Reference _reference;
     private string _text;
-    private List<string> _words;
+    private List<Word> _words;
 
     public Scripture(Reference reference, string text) : this()
     {
@@ -18,8 +18,14 @@ public class Scripture()
     }
     private List<string> CreateWordsList()
     {
-        string[] words = _text.Split(new char[] {' '}, StringSplitOptions.RemoveEmptyEntries);
-        return new List<string>(words);
+        string[] words = _text.Split(' ');
+        List<Word> wordList = new List<Word>();
+        foreach (string w in words)
+        {
+            Word word = new Word {_word = w};
+            wordList.Add(word);
+        }
+        return List<Word>(wordList);
     }
     public string GetDisplayText()
     {

@@ -40,16 +40,18 @@ public class Activity
     }
         public void DisplayStartingMessage()
     {
+        Console.Clear();
         Console.WriteLine($"Welcome to the {_name}");
         Console.WriteLine("");
         Console.WriteLine(_description);
         Console.WriteLine("");
         Console.Write("How long, in seconds, would you like your session? ");
         _duration = int.Parse(Console.ReadLine());
-        
+
         Console.Clear();
         Console.WriteLine("Get ready...");
         ShowSpinner(5);
+        Console.WriteLine("");
     }
     public void DisplayEndingMessage()
     {

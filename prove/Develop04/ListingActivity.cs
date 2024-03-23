@@ -2,7 +2,7 @@ public class ListingActivity : Activity
 {
     private int _count;
     private List<string> _prompts;
-    private List<string> _responses = [];
+
     public ListingActivity(string name, string description, List<string> prompts) : base(name, description)
     {
         _prompts = prompts;
@@ -20,12 +20,13 @@ public class ListingActivity : Activity
 
         Console.WriteLine($"--- {prompt} ---");
     }
+    private List<string> responses = [];
     public List<string> GetListFromUser()
     {
         Console.Write("> ");
         string response = Console.ReadLine();
-        _responses.Add(response);
-        return _responses;
+        responses.Add(response);
+        return responses;
     }
     public void Run()
     {

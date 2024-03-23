@@ -14,6 +14,8 @@ class Program
         ListingActivity activity3 = new ListingActivity("Listing Activity", "This activity will help you reflect on the good things in your life by having you list as many things as you can in a certain area.", listingPrompts);
         
         int choice;
+        int i = 0;
+        DateTime startActivities = DateTime.Now;
         do
         {
             Console.Clear();
@@ -28,15 +30,26 @@ class Program
             if (choice == 1)
             {
                 activity1.Run();
+                i++;
             }
             else if (choice == 2)
             {
                 activity2.Run();
+                i++;
             }
             else if (choice == 3)
             {
                 activity3.Run();
+                i++;
             }
         } while (choice != 4);
+
+        TimeSpan timespan = DateTime.Now - startActivities;
+        int seconds = (int)timespan.TotalSeconds;
+        
+        Console.WriteLine("");
+        Console.WriteLine("Thank you for participating.");
+        Console.WriteLine($"You completed {i} activities.");
+        Console.WriteLine($"It took you {seconds} seconds.");
     }
 }
